@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cxp.blog.dao.FriendDoMapper">
+  <resultMap id="BaseResultMap" type="com.cxp.blog.pojo.FriendDo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="blogaddress" jdbcType="VARCHAR" property="blogaddress" />
+    <result column="blogname" jdbcType="VARCHAR" property="blogname" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
+    <result column="pictureaddress" jdbcType="VARCHAR" property="pictureaddress" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, blogaddress, blogname, create_time, pictureaddress
+  </sql>
+  <select id="selectByExample" parameterType="com.cxp.blog.pojo.FriendDoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from t_friend
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_friend
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_friend
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cxp.blog.pojo.FriendDo" useGeneratedKeys="true">
+    insert into t_friend (blogaddress, blogname, create_time, 
+      pictureaddress)
+    values (#{blogaddress,jdbcType=VARCHAR}, #{blogname,jdbcType=VARCHAR}, #{create_time,jdbcType=TIMESTAMP}, 
+      #{pictureaddress,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cxp.blog.pojo.FriendDo" useGeneratedKeys="true">
+    insert into t_friend
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="blogaddress != null">
+        blogaddress,
+      </if>
+      <if test="blogname != null">
+        blogname,
+      </if>
+      <if test="create_time != null">
+        create_time,
+      </if>
+      <if test="pictureaddress != null">
+        pictureaddress,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="blogaddress != null">
+        #{blogaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="blogname != null">
+        #{blogname,jdbcType=VARCHAR},
+      </if>
+      <if test="create_time != null">
+        #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pictureaddress != null">
+        #{pictureaddress,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cxp.blog.pojo.FriendDo">
+    update t_friend
+    <set>
+      <if test="blogaddress != null">
+        blogaddress = #{blogaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="blogname != null">
+        blogname = #{blogname,jdbcType=VARCHAR},
+      </if>
+      <if test="create_time != null">
+        create_time = #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pictureaddress != null">
+        pictureaddress = #{pictureaddress,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cxp.blog.pojo.FriendDo">
+    update t_friend
+    set blogaddress = #{blogaddress,jdbcType=VARCHAR},
+      blogname = #{blogname,jdbcType=VARCHAR},
+      create_time = #{create_time,jdbcType=TIMESTAMP},
+      pictureaddress = #{pictureaddress,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="getFriendLinkByBlogaddress" resultType="com.cxp.blog.pojo.FriendDo">
+        select * from t_friend f where f.blogaddress = #{blogaddress}
+    </select>
+</mapper>

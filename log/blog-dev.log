@@ -1,0 +1,97 @@
+2020-06-15 11:57:12.280  INFO 27140 --- [restartedMain] com.cxp.blog.BlogApplication             : Starting BlogApplication on LAPTOP-SOKAO2EC with PID 27140 (D:\product\blog\target\classes started by 陈霄鹏的第一台笔记本 in D:\product\blog)
+2020-06-15 11:57:12.280  INFO 27140 --- [restartedMain] com.cxp.blog.BlogApplication             : The following profiles are active: dev
+2020-06-15 11:57:12.343  INFO 27140 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-06-15 11:57:12.343  INFO 27140 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-06-15 11:57:13.394  INFO 27140 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-06-15 11:57:13.425  INFO 27140 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23ms. Found 0 JPA repository interfaces.
+2020-06-15 11:57:14.500  INFO 27140 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-06-15 11:57:14.516  INFO 27140 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-06-15 11:57:14.516  INFO 27140 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-06-15 11:57:14.688  INFO 27140 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-06-15 11:57:14.688  INFO 27140 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2345 ms
+2020-06-15 11:57:14.981  INFO 27140 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-15 11:57:15.009  INFO 27140 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-06-15 11:57:15.222  INFO 27140 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-06-15 11:57:15.285  INFO 27140 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-06-15 11:57:15.363  INFO 27140 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.15.Final
+2020-06-15 11:57:15.582  INFO 27140 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-06-15 11:57:15.769  INFO 27140 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2020-06-15 11:57:16.012  WARN 27140 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-06-15 11:57:16.047  INFO 27140 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-06-15 11:57:16.063  INFO 27140 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-06-15 11:57:16.505  INFO 27140 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-06-15 11:57:17.045  INFO 27140 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-06-15 11:57:17.123  INFO 27140 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-06-15 11:57:17.123  INFO 27140 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-06-15 11:57:17.123  INFO 27140 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-06-15 11:57:17.139  INFO 27140 --- [restartedMain] com.cxp.blog.BlogApplication             : Started BlogApplication in 5.707 seconds (JVM running for 7.567)
+2020-06-15 11:57:51.711  INFO 27140 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-06-15 11:57:51.712  INFO 27140 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-06-15 11:57:51.726  INFO 27140 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2020-06-15 11:57:51.822  INFO 27140 --- [http-nio-8080-exec-1] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.IndexController.index', args=[{}, 1]}
+2020-06-15 11:57:51.992  INFO 27140 --- [http-nio-8080-exec-1] com.cxp.blog.aspect.LogAspect            : Result : {}index
+2020-06-15 11:57:53.303  INFO 27140 --- [http-nio-8080-exec-3] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.IndexController.blogMessage', args=[{}]}
+2020-06-15 11:57:53.305  INFO 27140 --- [http-nio-8080-exec-8] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/footer/blogRecommend', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.IndexController.blogRecommend', args=[{}]}
+2020-06-15 11:57:53.311  INFO 27140 --- [http-nio-8080-exec-8] com.cxp.blog.aspect.LogAspect            : Result : {}/admin/_fragments :: blogRecommend
+2020-06-15 11:57:53.319  INFO 27140 --- [http-nio-8080-exec-3] com.cxp.blog.aspect.LogAspect            : Result : {}/admin/_fragments:: blogMessage
+2020-06-15 11:58:13.257  INFO 27140 --- [http-nio-8080-exec-2] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/blog/2', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.IndexController.blog', args=[2, {}]}
+2020-06-15 11:58:13.331  INFO 27140 --- [http-nio-8080-exec-2] com.cxp.blog.aspect.LogAspect            : Result : {}details
+2020-06-15 11:58:13.832  INFO 27140 --- [http-nio-8080-exec-2] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.IndexController.blogMessage', args=[{}]}
+2020-06-15 11:58:13.833  INFO 27140 --- [http-nio-8080-exec-8] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/footer/blogRecommend', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.IndexController.blogRecommend', args=[{}]}
+2020-06-15 11:58:13.835  INFO 27140 --- [http-nio-8080-exec-8] com.cxp.blog.aspect.LogAspect            : Result : {}/admin/_fragments :: blogRecommend
+2020-06-15 11:58:13.841  INFO 27140 --- [http-nio-8080-exec-2] com.cxp.blog.aspect.LogAspect            : Result : {}/admin/_fragments:: blogMessage
+2020-06-15 11:58:13.984  INFO 27140 --- [http-nio-8080-exec-1] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/comments/2', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.CommentController.comments', args=[2, {}]}
+2020-06-15 11:58:13.993  INFO 27140 --- [http-nio-8080-exec-1] com.cxp.blog.aspect.LogAspect            : Result : {}details :: commentList
+2020-06-15 12:00:45.140  INFO 27140 --- [http-nio-8080-exec-6] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/types/1', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.TypeShowController.types', args=[1, 1, {}]}
+2020-06-15 12:00:45.163  INFO 27140 --- [http-nio-8080-exec-6] com.cxp.blog.aspect.LogAspect            : Result : {}types
+2020-06-15 12:00:45.647  INFO 27140 --- [http-nio-8080-exec-4] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.IndexController.blogMessage', args=[{}]}
+2020-06-15 12:00:45.648  INFO 27140 --- [http-nio-8080-exec-7] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/footer/blogRecommend', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.IndexController.blogRecommend', args=[{}]}
+2020-06-15 12:00:45.650  INFO 27140 --- [http-nio-8080-exec-7] com.cxp.blog.aspect.LogAspect            : Result : {}/admin/_fragments :: blogRecommend
+2020-06-15 12:00:45.658  INFO 27140 --- [http-nio-8080-exec-4] com.cxp.blog.aspect.LogAspect            : Result : {}/admin/_fragments:: blogMessage
+2020-06-15 12:00:53.444  INFO 27140 --- [http-nio-8080-exec-5] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/archives', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.ArchiveShowController.archive', args=[{}]}
+2020-06-15 12:00:53.457  INFO 27140 --- [http-nio-8080-exec-5] com.cxp.blog.aspect.LogAspect            : Result : {}archives
+2020-06-15 12:00:53.892  INFO 27140 --- [http-nio-8080-exec-10] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.IndexController.blogMessage', args=[{}]}
+2020-06-15 12:00:53.892  INFO 27140 --- [http-nio-8080-exec-6] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/footer/blogRecommend', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.IndexController.blogRecommend', args=[{}]}
+2020-06-15 12:00:53.896  INFO 27140 --- [http-nio-8080-exec-6] com.cxp.blog.aspect.LogAspect            : Result : {}/admin/_fragments :: blogRecommend
+2020-06-15 12:00:53.904  INFO 27140 --- [http-nio-8080-exec-10] com.cxp.blog.aspect.LogAspect            : Result : {}/admin/_fragments:: blogMessage
+2020-06-15 12:00:58.999  INFO 27140 --- [http-nio-8080-exec-9] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/message', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.MessageController.message', args=[]}
+2020-06-15 12:00:59.006  INFO 27140 --- [http-nio-8080-exec-9] com.cxp.blog.aspect.LogAspect            : Result : {}message
+2020-06-15 12:00:59.410  INFO 27140 --- [http-nio-8080-exec-4] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.IndexController.blogMessage', args=[{}]}
+2020-06-15 12:00:59.413  INFO 27140 --- [http-nio-8080-exec-1] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/footer/blogRecommend', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.IndexController.blogRecommend', args=[{}]}
+2020-06-15 12:00:59.416  INFO 27140 --- [http-nio-8080-exec-1] com.cxp.blog.aspect.LogAspect            : Result : {}/admin/_fragments :: blogRecommend
+2020-06-15 12:00:59.422  INFO 27140 --- [http-nio-8080-exec-4] com.cxp.blog.aspect.LogAspect            : Result : {}/admin/_fragments:: blogMessage
+2020-06-15 12:00:59.437  INFO 27140 --- [http-nio-8080-exec-3] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/messagecomment', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.MessageController.message', args=[{}]}
+2020-06-15 12:00:59.445  INFO 27140 --- [http-nio-8080-exec-3] com.cxp.blog.aspect.LogAspect            : Result : {}message :: messageList 
+2020-06-15 12:01:03.716  INFO 27140 --- [http-nio-8080-exec-6] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/friends', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.FriendShowController.friends', args=[{}]}
+2020-06-15 12:01:03.726  INFO 27140 --- [http-nio-8080-exec-6] com.cxp.blog.aspect.LogAspect            : Result : {}friends
+2020-06-15 12:01:04.235  INFO 27140 --- [http-nio-8080-exec-7] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.IndexController.blogMessage', args=[{}]}
+2020-06-15 12:01:04.237  INFO 27140 --- [http-nio-8080-exec-1] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/footer/blogRecommend', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.IndexController.blogRecommend', args=[{}]}
+2020-06-15 12:01:04.239  INFO 27140 --- [http-nio-8080-exec-1] com.cxp.blog.aspect.LogAspect            : Result : {}/admin/_fragments :: blogRecommend
+2020-06-15 12:01:04.244  INFO 27140 --- [http-nio-8080-exec-7] com.cxp.blog.aspect.LogAspect            : Result : {}/admin/_fragments:: blogMessage
+2020-06-15 12:01:11.292  INFO 27140 --- [http-nio-8080-exec-4] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/pictures', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.PicturesShowController.friends', args=[{}]}
+2020-06-15 12:01:11.308  INFO 27140 --- [http-nio-8080-exec-4] com.cxp.blog.aspect.LogAspect            : Result : {}pictures
+2020-06-15 12:01:11.713  INFO 27140 --- [http-nio-8080-exec-2] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.IndexController.blogMessage', args=[{}]}
+2020-06-15 12:01:11.716  INFO 27140 --- [http-nio-8080-exec-1] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/footer/blogRecommend', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.IndexController.blogRecommend', args=[{}]}
+2020-06-15 12:01:11.720  INFO 27140 --- [http-nio-8080-exec-1] com.cxp.blog.aspect.LogAspect            : Result : {}/admin/_fragments :: blogRecommend
+2020-06-15 12:01:11.724  INFO 27140 --- [http-nio-8080-exec-2] com.cxp.blog.aspect.LogAspect            : Result : {}/admin/_fragments:: blogMessage
+2020-06-15 12:01:15.333  INFO 27140 --- [http-nio-8080-exec-4] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/about', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.IndexController.about', args=[]}
+2020-06-15 12:01:15.334  INFO 27140 --- [http-nio-8080-exec-4] com.cxp.blog.aspect.LogAspect            : Result : {}about
+2020-06-15 12:01:15.754  INFO 27140 --- [http-nio-8080-exec-9] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.IndexController.blogMessage', args=[{}]}
+2020-06-15 12:01:15.755  INFO 27140 --- [http-nio-8080-exec-10] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/footer/blogRecommend', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.IndexController.blogRecommend', args=[{}]}
+2020-06-15 12:01:15.757  INFO 27140 --- [http-nio-8080-exec-10] com.cxp.blog.aspect.LogAspect            : Result : {}/admin/_fragments :: blogRecommend
+2020-06-15 12:01:15.761  INFO 27140 --- [http-nio-8080-exec-9] com.cxp.blog.aspect.LogAspect            : Result : {}/admin/_fragments:: blogMessage
+2020-06-15 12:01:35.792  INFO 27140 --- [http-nio-8080-exec-1] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/search', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.IndexController.search', args=[{}, 1, 测试]}
+2020-06-15 12:01:35.806  INFO 27140 --- [http-nio-8080-exec-1] com.cxp.blog.aspect.LogAspect            : Result : {}search
+2020-06-15 12:01:36.234  INFO 27140 --- [http-nio-8080-exec-5] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.IndexController.blogMessage', args=[{}]}
+2020-06-15 12:01:36.236  INFO 27140 --- [http-nio-8080-exec-8] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/footer/blogRecommend', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.IndexController.blogRecommend', args=[{}]}
+2020-06-15 12:01:36.239  INFO 27140 --- [http-nio-8080-exec-8] com.cxp.blog.aspect.LogAspect            : Result : {}/admin/_fragments :: blogRecommend
+2020-06-15 12:01:36.243  INFO 27140 --- [http-nio-8080-exec-5] com.cxp.blog.aspect.LogAspect            : Result : {}/admin/_fragments:: blogMessage
+2020-06-15 12:01:37.007  INFO 27140 --- [http-nio-8080-exec-10] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/blog/14', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.IndexController.blog', args=[14, {}]}
+2020-06-15 12:01:37.024  INFO 27140 --- [http-nio-8080-exec-10] com.cxp.blog.aspect.LogAspect            : Result : {}details
+2020-06-15 12:01:37.444  INFO 27140 --- [http-nio-8080-exec-10] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.IndexController.blogMessage', args=[{}]}
+2020-06-15 12:01:37.446  INFO 27140 --- [http-nio-8080-exec-3] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/footer/blogRecommend', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.IndexController.blogRecommend', args=[{}]}
+2020-06-15 12:01:37.450  INFO 27140 --- [http-nio-8080-exec-3] com.cxp.blog.aspect.LogAspect            : Result : {}/admin/_fragments :: blogRecommend
+2020-06-15 12:01:37.454  INFO 27140 --- [http-nio-8080-exec-10] com.cxp.blog.aspect.LogAspect            : Result : {}/admin/_fragments:: blogMessage
+2020-06-15 12:01:37.541  INFO 27140 --- [http-nio-8080-exec-1] com.cxp.blog.aspect.LogAspect            : Result:ResultLog{url='http://localhost:8080/comments/14', ip='0:0:0:0:0:0:0:1', classMethod='class com.cxp.blog.Controller.CommentController.comments', args=[14, {}]}
+2020-06-15 12:01:37.548  INFO 27140 --- [http-nio-8080-exec-1] com.cxp.blog.aspect.LogAspect            : Result : {}details :: commentList
+2020-06-15 15:04:03.670  WARN 27140 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h16m48s143ms708µs500ns).

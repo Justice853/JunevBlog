@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cxp.blog.dao.BlogDoMapper">
+  <resultMap id="BaseResultMap" type="com.cxp.blog.pojo.BlogDo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="first_picture" jdbcType="VARCHAR" property="first_picture" />
+    <result column="flag" jdbcType="VARCHAR" property="flag" />
+    <result column="views" jdbcType="INTEGER" property="views" />
+    <result column="appreciation" jdbcType="BIT" property="appreciation" />
+    <result column="share_statement" jdbcType="BIT" property="share_statement" />
+    <result column="commentabled" jdbcType="BIT" property="commentabled" />
+    <result column="published" jdbcType="BIT" property="published" />
+    <result column="recommend" jdbcType="BIT" property="recommend" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="update_time" />
+    <result column="type_id" jdbcType="BIGINT" property="type_id" />
+    <result column="user_id" jdbcType="BIGINT" property="user_id" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="tag_ids" jdbcType="VARCHAR" property="tag_ids" />
+    <result column="comment_count" jdbcType="INTEGER" property="comment_count" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cxp.blog.pojo.BlogDo">
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <resultMap id="blog" type="com.cxp.blog.vo.BlogQuery">
+    <id property="id" column="id"/>
+    <result property="title" column="title"/>
+    <result property="updateTime" column="update_time"/>
+    <result property="recommend" column="recommend"/>
+    <result property="published" column="published"/>
+    <result property="typeId" column="type_id"/>
+    <association property="typeDo" javaType="com.cxp.blog.pojo.TypeDo">
+      <id property="id" column="id"/>
+      <result property="name" column="name"/>
+    </association>
+  </resultMap>
+
+  <resultMap id="User" type="com.cxp.blog.pojo.UserDo">
+    <id property="id" column="id"/>
+    <result property="nickname" column="nickname"/>
+    <result property="username" column="username"/>
+    <result property="email" column="email"/>
+    <result property="avatar" column="avatar"/>
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, title, first_picture, flag, views, appreciation, share_statement, commentabled, 
+    published, recommend, create_time, update_time, type_id, user_id, description, tag_ids, 
+    comment_count
+  </sql>
+  <sql id="Blob_Column_List">
+    content
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.cxp.blog.pojo.BlogDoExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_blog
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.cxp.blog.pojo.BlogDoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from t_blog
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_blog
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_blog
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cxp.blog.pojo.BlogDo" useGeneratedKeys="true">
+    insert into t_blog (title, first_picture, flag, 
+      views, appreciation, share_statement, 
+      commentabled, published, recommend, 
+      create_time, update_time, type_id, 
+      user_id, description, tag_ids, 
+      comment_count, content)
+    values (#{title,jdbcType=VARCHAR}, #{first_picture,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR}, 
+      #{views,jdbcType=INTEGER}, #{appreciation,jdbcType=BIT}, #{share_statement,jdbcType=BIT}, 
+      #{commentabled,jdbcType=BIT}, #{published,jdbcType=BIT}, #{recommend,jdbcType=BIT}, 
+      #{create_time,jdbcType=TIMESTAMP}, #{update_time,jdbcType=TIMESTAMP}, #{type_id,jdbcType=BIGINT}, 
+      #{user_id,jdbcType=BIGINT}, #{description,jdbcType=VARCHAR}, #{tag_ids,jdbcType=VARCHAR}, 
+      #{comment_count,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cxp.blog.pojo.BlogDo" useGeneratedKeys="true">
+    insert into t_blog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="title != null">
+        title,
+      </if>
+      <if test="first_picture != null">
+        first_picture,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="views != null">
+        views,
+      </if>
+      <if test="appreciation != null">
+        appreciation,
+      </if>
+      <if test="share_statement != null">
+        share_statement,
+      </if>
+      <if test="commentabled != null">
+        commentabled,
+      </if>
+      <if test="published != null">
+        published,
+      </if>
+      <if test="recommend != null">
+        recommend,
+      </if>
+      <if test="create_time != null">
+        create_time,
+      </if>
+      <if test="update_time != null">
+        update_time,
+      </if>
+      <if test="type_id != null">
+        type_id,
+      </if>
+      <if test="user_id != null">
+        user_id,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="tag_ids != null">
+        tag_ids,
+      </if>
+      <if test="comment_count != null">
+        comment_count,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="first_picture != null">
+        #{first_picture,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="views != null">
+        #{views,jdbcType=INTEGER},
+      </if>
+      <if test="appreciation != null">
+        #{appreciation,jdbcType=BIT},
+      </if>
+      <if test="share_statement != null">
+        #{share_statement,jdbcType=BIT},
+      </if>
+      <if test="commentabled != null">
+        #{commentabled,jdbcType=BIT},
+      </if>
+      <if test="published != null">
+        #{published,jdbcType=BIT},
+      </if>
+      <if test="recommend != null">
+        #{recommend,jdbcType=BIT},
+      </if>
+      <if test="create_time != null">
+        #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="update_time != null">
+        #{update_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type_id != null">
+        #{type_id,jdbcType=BIGINT},
+      </if>
+      <if test="user_id != null">
+        #{user_id,jdbcType=BIGINT},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="tag_ids != null">
+        #{tag_ids,jdbcType=VARCHAR},
+      </if>
+      <if test="comment_count != null">
+        #{comment_count,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cxp.blog.pojo.BlogDo">
+    update t_blog
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="first_picture != null">
+        first_picture = #{first_picture,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        flag = #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="views != null">
+        views = #{views,jdbcType=INTEGER},
+      </if>
+      <if test="appreciation != null">
+        appreciation = #{appreciation,jdbcType=BIT},
+      </if>
+      <if test="share_statement != null">
+        share_statement = #{share_statement,jdbcType=BIT},
+      </if>
+      <if test="commentabled != null">
+        commentabled = #{commentabled,jdbcType=BIT},
+      </if>
+      <if test="published != null">
+        published = #{published,jdbcType=BIT},
+      </if>
+      <if test="recommend != null">
+        recommend = #{recommend,jdbcType=BIT},
+      </if>
+      <if test="create_time != null">
+        create_time = #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="update_time != null">
+        update_time = #{update_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type_id != null">
+        type_id = #{type_id,jdbcType=BIGINT},
+      </if>
+      <if test="user_id != null">
+        user_id = #{user_id,jdbcType=BIGINT},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="tag_ids != null">
+        tag_ids = #{tag_ids,jdbcType=VARCHAR},
+      </if>
+      <if test="comment_count != null">
+        comment_count = #{comment_count,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cxp.blog.pojo.BlogDo">
+    update t_blog
+    set title = #{title,jdbcType=VARCHAR},
+      first_picture = #{first_picture,jdbcType=VARCHAR},
+      flag = #{flag,jdbcType=VARCHAR},
+      views = #{views,jdbcType=INTEGER},
+      appreciation = #{appreciation,jdbcType=BIT},
+      share_statement = #{share_statement,jdbcType=BIT},
+      commentabled = #{commentabled,jdbcType=BIT},
+      published = #{published,jdbcType=BIT},
+      recommend = #{recommend,jdbcType=BIT},
+      create_time = #{create_time,jdbcType=TIMESTAMP},
+      update_time = #{update_time,jdbcType=TIMESTAMP},
+      type_id = #{type_id,jdbcType=BIGINT},
+      user_id = #{user_id,jdbcType=BIGINT},
+      description = #{description,jdbcType=VARCHAR},
+      tag_ids = #{tag_ids,jdbcType=VARCHAR},
+      comment_count = #{comment_count,jdbcType=INTEGER},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cxp.blog.pojo.BlogDo">
+    update t_blog
+    set title = #{title,jdbcType=VARCHAR},
+      first_picture = #{first_picture,jdbcType=VARCHAR},
+      flag = #{flag,jdbcType=VARCHAR},
+      content = #{content,jdbcType=LONGVARCHAR},
+      views = #{views,jdbcType=INTEGER},
+      appreciation = #{appreciation,jdbcType=BIT},
+      share_statement = #{share_statement,jdbcType=BIT},
+      commentabled = #{commentabled,jdbcType=BIT},
+      published = #{published,jdbcType=BIT},
+      recommend = #{recommend,jdbcType=BIT},
+      create_time = #{create_time,jdbcType=TIMESTAMP},
+      update_time = #{update_time,jdbcType=TIMESTAMP},
+      type_id = #{type_id,jdbcType=BIGINT},
+      user_id = #{user_id,jdbcType=BIGINT},
+      description = #{description,jdbcType=VARCHAR},
+      tag_ids = #{tag_ids,jdbcType=VARCHAR},
+      comment_count = #{comment_count,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="searchByTitleOrTypeOrRecommend" parameterType="com.cxp.blog.vo.SearchBlog"
+          resultMap="blog">
+    <bind name="pattern" value="'%' + title + '%'" />    /*模糊查询*/
+    select b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id, t.name
+    from t_blog b ,t_type t
+    <where>
+      <if test="1 == 1">
+        b.type_id = t.id    /*博客类型id=类型id*/
+      </if>
+      <if test="typeId != null">
+        and b.type_id = #{typeId}       /*根据博客类型查询*/
+      </if>
+      <if test="recommend != null">
+        and b.recommend = #{recommend}   /*根据博客推荐查询*/
+      </if>
+      <if test="title != null">
+        and b.title like #{pattern}   /*根据博客title模糊查询*/
+      </if>
+    </where>
+  </select>
+  <select id="getAllBlogQuery" resultMap="blog">
+     select b.id,b.title,b.update_time,b.recommend,b.published,b.type_id,t.id,t.name from t_blog b left outer join
+        t_type t on b.type_id = t.id order by b.update_time desc
+  </select>
+
+  <select id="getBlogTotal" resultType="Integer">
+        select count(*) from t_blog
+    </select>
+  <select id="getBlogViewTotal" resultType="Integer">
+        select sum(views) from t_blog
+    </select>
+  <select id="getBlogCommentTotal" resultType="Integer">
+        select count(*) from t_comment
+    </select>
+  <select id="getBlogMessageTotal" resultType="Integer">
+        select count(*) from t_message
+    </select>
+
+  <resultMap id="firstPageBlog" type="com.cxp.blog.vo.FirstPageBlog">
+    <id property="id" column="id"/>
+    <result property="title" column="title"/>
+    <result property="firstPicture" column="first_picture"/>
+    <result property="views" column="views"/>
+    <result property="commentCount" column="comment_count"/>
+    <result property="updateTime" column="update_time"/>
+    <result property="description" column="description"/>
+
+    <result property="typeName" column="name"/>
+
+    <result property="nickname" column="nickname"/>
+    <result property="avatar" column="avatar"/>
+  </resultMap>
+
+  <select id="getFirstPageBlog" resultMap="firstPageBlog">
+        select b.id,b.title,b.first_picture, b.views, b.comment_count,b.update_time,b.description,
+        t.name ,
+        u.nickname, u.avatar
+        from t_blog b, t_type t,t_user u
+        where b.type_id = t.id and  u.id = b.user_id order by b.update_time desc
+    </select>
+
+  <resultMap id="recommendBlog" type="com.cxp.blog.vo.RecommendBlog">
+    <id property="id" column="id"/>
+    <result property="title" column="title"/>
+    <result property="recommend" column="recommend"/>
+    <result property="firstPicture" column="first_picture"/>
+  </resultMap>
+
+  <!--推荐文章-->
+  <select id="getAllRecommendBlog" resultMap="recommendBlog">
+        select * from t_blog where t_blog.recommend = true order by t_blog.update_time desc limit 6 ;
+    </select>
+
+  <select id="getByTypeId" resultMap="firstPageBlog">
+        select b.id,b.title,b.first_picture, b.views, b.comment_count, b.update_time, b.description,
+        t.name ,
+        u.nickname, u.avatar
+        from t_blog b, t_type t,t_user u
+        where b.type_id = t.id and u.id = b.user_id and b.type_id = #{typeId} order by b.update_time desc
+    </select>
+
+  <select id="getSearchBlog" resultMap="firstPageBlog">
+    <bind name="pattern" value="'%' + query + '%'" />
+    select b.id,b.title,b.first_picture, b.views,b.comment_count,b.update_time,b.description,
+    t.name ,
+    u.nickname, u.avatar
+    from t_blog b, t_type t,t_user u
+    where b.type_id = t.id and  u.id = b.user_id and (b.title like #{pattern} or b.content like  #{pattern})
+    order by b.update_time desc
+  </select>
+
+  <resultMap id="detailedBlog" type="com.cxp.blog.vo.DetailedBlog">
+    <id property="id" column="bid"/>
+    <result property="firstPicture" column="first_picture"/>
+    <result property="flag" column="flag"/>
+    <result property="title" column="title"/>
+    <result property="content" column="content"/>
+    <result property="typeName" column="name"/>
+    <result property="views" column="views"/>
+    <result property="commentCount" column="comment_count"/>
+    <result property="updateTime" column="update_time"/>
+    <result property="commentabled" column="commentabled"/>
+    <result property="shareStatement" column="share_statement"/>
+    <result property="appreciation" column="appreciation"/>
+    <result property="nickname" column="nickname"/>
+    <result property="avatar" column="avatar"/>
+    <result property="tag_ids" column="tag_ids"></result>
+  </resultMap>
+
+  <select id="getDetailedBlog" resultMap="detailedBlog">
+        select b.id bid,b.first_picture,b.flag,b.title,b.content,b.views,b.comment_count,b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name,b.tag_ids
+        from t_blog b, t_user u, t_type t
+        where b.user_id = u.id and b.type_id = t.id and b.id = #{id}
+    </select>
+
+  <update id="updateViews" parameterType="com.cxp.blog.pojo.BlogDo">
+        update t_blog b set b.views = b.views+1 where b.id = #{id}
+    </update>
+
+  <update id="getCommentCountById" parameterType="com.cxp.blog.pojo.BlogDo">
+        update t_blog b set b.comment_count = (
+        select count(*) from t_comment c where c.blog_id = #{id} and b.id = #{id}
+        ) WHERE b.id = #{id}
+    </update>
+
+  <update id="updateBlog" parameterType="com.cxp.blog.pojo.BlogDo">
+        update t_blog set published = #{published},flag = #{flag} ,
+        title = #{title}, content = #{content}, type_id = #{type_id},
+        first_picture = #{first_picture} , description = #{description} , recommend = #{recommend} ,
+        share_statement = #{share_statement}, appreciation = #{appreciation},
+        commentabled = #{commentabled} ,update_time = #{update_time} where id = #{id};
+    </update>
+
+
+</mapper>

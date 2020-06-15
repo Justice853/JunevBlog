@@ -1,0 +1,7 @@
+spring:
+  thymeleaf:
+    mode: HTML
+  resources:
+    add-mappings: true
+  profiles:
+    active: pro

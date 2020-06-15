@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cxp.blog.dao.CommentDoMapper">
+  <resultMap id="BaseResultMap" type="com.cxp.blog.pojo.CommentDo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
+    <result column="blog_id" jdbcType="BIGINT" property="blog_id" />
+    <result column="parent_comment_id" jdbcType="BIGINT" property="parent_comment_id" />
+    <result column="admin_comment" jdbcType="BIT" property="admin_comment" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, nickname, email, content, avatar, create_time, blog_id, parent_comment_id, admin_comment
+  </sql>
+  <select id="selectByExample" parameterType="com.cxp.blog.pojo.CommentDoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from t_comment
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_comment
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_comment
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cxp.blog.pojo.CommentDo" useGeneratedKeys="true">
+    insert into t_comment (nickname, email, content, 
+      avatar, create_time, blog_id, 
+      parent_comment_id, admin_comment)
+    values (#{nickname,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{avatar,jdbcType=VARCHAR}, #{create_time,jdbcType=TIMESTAMP}, #{blog_id,jdbcType=BIGINT}, 
+      #{parent_comment_id,jdbcType=BIGINT}, #{admin_comment,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cxp.blog.pojo.CommentDo" useGeneratedKeys="true">
+    insert into t_comment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="avatar != null">
+        avatar,
+      </if>
+      <if test="create_time != null">
+        create_time,
+      </if>
+      <if test="blog_id != null">
+        blog_id,
+      </if>
+      <if test="parent_comment_id != null">
+        parent_comment_id,
+      </if>
+      <if test="admin_comment != null">
+        admin_comment,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="create_time != null">
+        #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="blog_id != null">
+        #{blog_id,jdbcType=BIGINT},
+      </if>
+      <if test="parent_comment_id != null">
+        #{parent_comment_id,jdbcType=BIGINT},
+      </if>
+      <if test="admin_comment != null">
+        #{admin_comment,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cxp.blog.pojo.CommentDo" >
+    update t_comment
+    <set>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="create_time != null">
+        create_time = #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="blog_id != null">
+        blog_id = #{blog_id,jdbcType=BIGINT},
+      </if>
+      <if test="parent_comment_id != null">
+        parent_comment_id = #{parent_comment_id,jdbcType=BIGINT},
+      </if>
+      <if test="admin_comment != null">
+        admin_comment = #{admin_comment,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cxp.blog.pojo.CommentDo" >
+    update t_comment
+    set nickname = #{nickname,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      avatar = #{avatar,jdbcType=VARCHAR},
+      create_time = #{create_time,jdbcType=TIMESTAMP},
+      blog_id = #{blog_id,jdbcType=BIGINT},
+      parent_comment_id = #{parent_comment_id,jdbcType=BIGINT},
+      admin_comment = #{admin_comment,jdbcType=BIT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="findByBlogIdParentIdNull" resultType="com.cxp.blog.pojo.CommentDo" resultMap="BaseResultMap">
+        select *
+        from t_comment c
+        where c.blog_id = #{blogId} and c.parent_comment_id = #{blogParentId}
+        order by c.create_time desc
+    </select>
+
+  <!--查询一级子评论-->
+  <select id="findByBlogIdParentIdNotNull" resultType="com.cxp.blog.pojo.CommentDo" resultMap="BaseResultMap">
+        select *
+        from t_comment c
+        where c.blog_id = #{blogId} and c.parent_comment_id = #{id}
+        order by c.create_time desc
+    </select>
+
+  <!--查询二级子评论-->
+  <select id="findByBlogIdAndReplayId" resultType="com.cxp.blog.pojo.CommentDo" resultMap="BaseResultMap">
+        select *
+        from t_comment c
+        where c.blog_id = #{blogId} and c.parent_comment_id = #{childId}
+        order by c.create_time desc
+    </select>
+
+  <insert id="saveComment" parameterType="com.cxp.blog.pojo.CommentDo" >
+        insert into t_comment (nickname,email,content,avatar,create_time,blog_id,parent_comment_id,admin_comment)
+        values (#{nickname},#{email},#{content},#{avatar},#{create_time},#{blog_id},#{parent_comment_id},#{admin_comment});
+    </insert>
+</mapper>

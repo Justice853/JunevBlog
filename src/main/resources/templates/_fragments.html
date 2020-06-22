@@ -6,6 +6,7 @@
     <title th:replace="${title}">首页</title>
     <link href="../static/images/blogname.png" th:href="@{/images/blogname.png}" rel="icon" type="image/x-ico">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">-->
     <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}">
     <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
     <link rel="stylesheet" href="../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
@@ -13,13 +14,14 @@
     <link rel="stylesheet" href="../static/css/timeline.css" th:href="@{/css/timeline.css}">
     <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
     <link rel="stylesheet" href="../static/lib/picture/css/jkresponsivegallery.css" th:href="@{/lib/picture/css/jkresponsivegallery.css}">
+<!--    -->
 </head>
 <body>
-<nav th:fragment="menu(n)" class="ui inverted grid-header attached  segment m-padded-tb-mini m-shadow-small" >
+<nav th:fragment="menu(n)" class="ui inverted grey attached  segment m-padded-tb-small m-shadow-small" >
     <div class="ui container">
-        <div class="ui inverted secondary stackable menu">
-            <h2 class="ui olive header item " style="font-family: STHeiti" >六月</h2>
-            <a href="#" th:href="@{/}" class="m-item item m-mobile-hide" th:classappend="${n==1} ? active"><i class="mini home icon"></i>首页</a>
+        <div class="ui inverted secondary stackable larger menu">
+            <h2 class="ui  header item " style="font-family:'STCaiyun'" >夏天的风</h2>
+            <a href="#" th:href="@{/index}" class="m-item item m-mobile-hide" th:classappend="${n==1} ? active"><i class="mini home icon"></i>首页</a>
             <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? active"><i class="mini idea icon"></i>分类</a>
             <a href="#" th:href="@{/archives}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? active"><i class="mini tags icon"></i>时间轴</a>
             <a href="#" th:href="@{/message}" class="m-item item m-mobile-hide" th:classappend="${n==4} ? active"><i class="mini clone icon"></i>留言板</a>
@@ -36,22 +38,25 @@
             </div>
         </div>
     </div>
-    <a href="#" class="ui menu  toggle black icon button m-right-top m-mobile-show">
+    <a href="#" class="ui menu  toggle grey icon button m-right-top m-mobile-show">
         <i class="sidebar icon"></i>
     </a>
+<!--    <div id="aplayer"></div>-->
 </nav>
 
-<footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-massive">
+
+
+<footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-massive ">
     <div class="ui center aligned container">
         <div class="ui inverted divided stackable grid" >
-            <div class="four wide column">
+            <div class="four wide column animated zoomIn">
                 <h4 class="ui inverted header m-text-thin m-text-spaced ">联系我</h4>
                 <div class="ui inverted link list">
                     <a href="#" class="item m-text-thin">Email：a853113943@gmail.com</a>
                     <a href="#" class="item m-text-thin">QQ：853113943</a>
                 </div>
             </div>
-            <div class="three wide column">
+            <div class="three wide column animated zoomIn">
                 <h4 class="ui inverted header m-text-thin m-text-spaced " >微信二维码</h4>
                 <div class="ui inverted link list">
                     <div class="item">
@@ -60,7 +65,7 @@
                 </div>
             </div>
 
-            <div class="five wide column">
+            <div class="five wide column animated zoomIn">
                 <h4 class="ui inverted header m-text-thin m-text-spaced ">推荐文章</h4>
                 <div id="blog-Recommend">
                 <div class="ui inverted link list" th:fragment="blogRecommend" >
@@ -70,7 +75,7 @@
                 </div>
                 </div>
             </div>
-            <div class="four wide column">
+            <div class="four wide column animated zoomIn">
                 <h4 class="ui inverted header m-text-thin m-text-spaced ">博客信息</h4>
                 <div id="blog-message">
                     <div class="ui inverted  link list" style="align-content: center;margin-top: 10px" th:fragment="blogMessage" >
@@ -93,7 +98,9 @@
 
         <div class="ui inverted section divider"></div>
         <div style="color: #F08047;margin-top: -18px" class="ui inverted m-text-thin m-text-spaced">我的小站已营业：<span id="htmer_time" class="item m-text-thin"></span></div>
-        <p class="m-text-thin m-text-spaced m-opacity-tiny">京ICP备19054330号</p>
+        <a class="m-text-thin m-text-spaced m-opacity-tiny " th:href="@{http://beian.miit.gov.cn/}">京ICP备19054330号</a>
+
+
     </div>
 
 </footer>
@@ -102,17 +109,23 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+<!--    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>-->
 
     <script src="../static/lib/timeline/timeline.js" th:src="@{/lib/timeline/timeline.js}"></script>
     <script src="../static/lib/prism/prism.js" th:src="@{/lib/prism/prism.js}"></script>
     <script src="../static/lib/tocbot/tocbot.min.js" th:src="@{/lib/tocbot/tocbot.min.js}"></script>
     <script src="../static/lib/qrcode/qrcode.min.js" th:src="@{/lib/qrcode/qrcode.min.js}"></script>
 
+    <script src="../static/js/wow.min.js" th:src="@{/js/wow.min.js}"></script>
+
     <script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
+
 
 
     <script>
 
+        // $('#blog-message').load(/*[[@{/footer/blogmessage}]]*/"/footer/blogmessage");
+        // $('#blog-Recommend').load(/*[[@{/footer/blogRecommend}]]*/"/footer/blogRecommend");
         $('#blog-message').load(/*[[@{/footer/blogmessage}]]*/"/footer/blogmessage");
         $('#blog-Recommend').load(/*[[@{/footer/blogRecommend}]]*/"/footer/blogRecommend");
 
@@ -153,6 +166,24 @@
             document.getElementById("htmer_time").innerHTML = currentTimeHtml;
         }
         setInterval(setTime, 1000);
+
+        // const ap = new APlayer({
+        //     container: document.getElementById('aplayer'),
+        //     fixed: true,
+        //         audio: [{
+        //             name: '那就这样吧',
+        //             artist: '那就这样吧（翻自 动力火车） ',
+        //             url: 'http://music.163.com/song/media/outer/url?id=548413072.mp3',
+        //             cover: ''
+        //     },
+        //         {
+        //             name: '小幸运（翻自 田馥甄） ',
+        //             artist: ' 田馥',
+        //             url: 'http://m8.music.126.net/20200621204542/c31240cef8f5c39116a28634b27c386e/ymusic/81b7/8281/7c2b/66ff04395b2ae015342c221888536c37.flac',
+        //             cover: ''
+        //         }]
+        // });
+        // ap.init();
     </script>
 
 </th:block>

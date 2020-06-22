@@ -48,7 +48,7 @@
       </div>
 
       <div class="ui attached segment m-padded-tb-large">
-        <div class="ui labeled button m-margin-tb-tiny" th:each="type:${types}">
+        <div class="ui labeled button m-margin-tb-tiny animated rotateInUpLeft" th:each="type:${types}">
           <a href="#" th:href="@{/types/{id}(id=${type.id})}" class="ui basic teal button" th:classappend="${type.id==activeTypeId} ? 'violet'" th:text="${type.name}">思考与感悟</a>
           <div class="ui basic teal left pointing label" th:classappend="${type.id==activeTypeId} ? 'violet'" th:text="${#arrays.length(type.blogs)}">24</div>
         </div>
@@ -56,7 +56,7 @@
 
       <div class="ui top attached teal segment">
         <div class="ui padded vertical segment m-padded-tb-large m-mobile-lr-clear" th:each="blog :${pageInfo.list}" >
-          <div class="ui mobile reversed stackable grid">
+          <div class="ui mobile reversed stackable grid animated zoomIn">
             <div class="eleven wide column">
               <h3 class="ui header"><a th:href="@{/blog/{id}/(id=${blog.id})}" target="_blank" class="m-black" th:text="${blog.title}">你真的理解什么是财富自由吗？</a></h3>
               <p class="m-text" th:text="|${blog.description}.......|">正确做好任何一件事情的前提是清晰、正确的理解目标。而事实是，我们很多人很多时候根本没有对目标正确的定义，甚至根本从来就没有想过，只是大家都那么做而已…...</p>

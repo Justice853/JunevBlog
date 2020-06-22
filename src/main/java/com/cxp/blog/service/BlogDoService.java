@@ -41,4 +41,6 @@ public interface BlogDoService {
 
     DetailedBlog getDetailedBlog(Long id);
 
+    List<FirstPageBlog>getFirstPageBlogThree();
+
 }

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夏天的风</title>
+    <link href="../static/images/blogname.png" th:href="@{/images/blogname.png}" rel="icon" type="image/x-ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+    <link href="../static/css/navigation.css" rel="stylesheet" type="text/css"  th:href="@{/css/navigation.css}">
+    <link rel="stylesheet" href="../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
+    <link rel="stylesheet" href="../static/lib/tocbot/tocbot.css" th:href="@{/lib/tocbot/tocbot.css}">
+    <link rel="stylesheet" href="../static/lib/picture/css/jkresponsivegallery.css" th:href="@{/lib/picture/css/jkresponsivegallery.css}">
+</head>
+<body>
+
+    <div id="menu" class="hover_animation menu_open" data-mark="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div id="navgation" class="navgation navgation_close">
+        <ul class="point">
+            <li><a href="#"  th:href="@{/}">首页</a></li>
+            <li><a href="#"  th:href="@{/index}">博客</a></li>
+            <li><a href="#"  th:href="@{/message}">留言</a></li>
+        </ul>
+        <div class="logo" style="margin-bottom: 20px"><a>夏天的风</a></div>
+    </div>
+
+    <div class="sections" id="section1">
+        <div class="fp-tablecell">
+            <div class="page1">
+                <div class="nav wow  animated zoomIn" data-wow-duration="2s" style="visibility: visible; animation-duration: 2s; animation-name: zoomIn;">
+                    <h1 style="font-family: 华文新魏;font-size: 50px">六月</h1>
+                    <p style="font-family: 华文新魏;font-size:25px">我是否可以把你比喻成夏天？ 虽然你比夏天更可爱更温和。
+                    </p>
+                    <a class="ui blue circular button" style="margin-top: 20px" href="#" th:href="@{/index}">进入博客</a>
+                </div>
+                <div id="down-button">
+                    <a class="next wow animated fadeInUp " data-wow-duration="2s" id="next" style="visibility: visible; animation-duration: 2s; animation-name: fadeInUp;">
+                        <i class="angle double down icon" style="color:#fff;font-size:3rem;display:table;margin-top:15px;! important;"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="sections" id="section2">
+        <div class="fp-tablecell">
+            <div class="page2">
+                <div class="warp-box">
+                    <div class="new-article">
+                        <div class="inner  wow animated fadeInDown" data-wow-delay=".2s" style="visibility: hidden; animation-delay: 0.2s; animation-name: none;">
+                            <h1>推荐文章</h1>
+                            <p>
+                                夏天的风正暖暖吹过,穿过头发穿过耳朵
+                                <br>你和我的夏天,风轻轻说着.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="ui three column doubling stackable grid container" >
+                            <div data-wow-delay=".2s" class="column wow animated fadeInUp" style="padding: 0px 10px; visibility: hidden; animation-delay: 0.2s; animation-name: none;" th:each="blog : ${blogs}">
+                                <div class="single-news">
+                                    <div class="news-head">
+                                        <img src="./images/bg.png" th:src="@{${blog.firstPicture}}"  >
+                                        <a href="" class="link" th:href="@{/blog/{id}(id=${blog.id})}"><i class="arrow up icon" style="font-size:2rem;margin-left: 3px!important;"></i></a>
+                                    </div>
+                                    <div class="news-content">
+                                        <h4>
+                                            <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" th:text="${blog.title}">
+                                                SpringBoot之从零搭建博客网站
+                                            </a>
+                                        </h4>
+                                        <div class="date" th:text="${blog.updateTime}">2020-02-16 20:58</div>
+                                        <p th:text="|${blog.description}......|">博主是一名大三软件工程的学生。坚持学习课堂上未曾教授的java以及javaweb相关的知识，乃至学习Spring一系列的框架的过程尤为枯燥。每天看视频学习编程，“copy”视频中的代码运行让我就像是机器一样日复一日地重复着那些操作。而使得我能够坚持下去的兴趣，就是能够在不久的将来完成我自己的项目。也就有了我的个人博客网站。</p>
+                                        <a href="http://www.apenixx.top/article/details/1533196734" class="btn" th:href="@{/blog/{id}(id=${blog.id})}">
+                                        阅读更多
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sections" id="section3">
+        <div class="fp-tablecell">
+            <div class="page3">
+                <div class="warp-box">
+                    <div class="warp">
+                        <div class="inner">
+                            <div class="links">
+                                <ul>
+                                    <li class="wow animated fadeInLeft" style="visibility: hidden; animation-name: none;"><a href="#"  th:href="@{/about}">关于</a></li>
+                                    <li class="wow animated fadeInRight" style="visibility: hidden; animation-name: none;"><a href="" th:href="@{/friends}">+友情链接</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sections" id="section4">
+        <div class="fp-tablecell">
+            <div class="page4">
+                <div class="warp-box">
+                    <div class="about">
+                        <div class="inner">
+                            <h1 class="wow animated fadeInLeft" style="visibility: hidden; animation-name: none;">夏天的风</h1>
+                            <p class="wow animated fadeInRight" style="visibility: hidden; animation-name: none;">
+                                大家好，我是Junev，人称“六月”，无名小卒一名。
+                                <br></br>95后，爱玩爱闹爱思考，如果觉得我的网站不错，可以收藏一下哦！
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="toolbar" class="m-padded m-fixed m-right-bottom" style="display: none">
+        <div class="ui vertical icon buttons ">
+            <div id="toTop-button" class="ui icon button" ><i class="chevron up icon"></i></div>
+        </div>
+    </div>
+    <div class="ui wechat-qr flowing popup transition hidden " style="width: 200px !important;">
+        <img src="../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}" alt="" class="ui  image"  >
+    </div>
+    <div class="ui qq-qr flowing popup transition hidden " style="width: 200px !important;">
+        <img src="../static/images/qq.png" th:src="@{/images/qq.png}" alt="" class="ui  image" >
+    </div>
+
+
+    <footer th:replace="_fragments :: footer">
+    </footer>
+
+    <th:block th:replace="_fragments :: script">
+    <script src="../static/js/wow.min.js" th:src="@{/static/js/wow.min.js}"></script>
+    </th:block>
+
+    <script>
+        $('#down-button').click(function () {
+            $(window).scrollTo(750,500);
+        });
+
+        wow = new WOW({
+            boxClass:     'wow',      // default
+            animateClass: 'animated', // default
+            offset:       0,          // default
+            mobile:       true,       // default
+            live:         true        // default
+        });
+        wow.init();
+
+        $("#menu").click(function(){
+            $("#navgation").toggleClass("navgation_open");
+            $("#navgation").toggleClass("navgation_close");
+        });
+
+
+
+        $('#toTop-button').click(function () {
+            $(window).scrollTo(0,500);
+        });
+
+        var waypoint = new Waypoint({
+            element: document.getElementsByClassName('sections'),
+            handler: function(direction) {
+                if (direction == 'down') {
+                    $('#toolbar').show(100);
+                } else {
+                    $('#toolbar').hide(500);
+                }
+                console.log('Scrolled to waypoint!  ' + direction);
+            }
+        });
+
+    </script>

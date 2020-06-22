@@ -134,6 +134,11 @@ public class BlogDoServiceImpl implements BlogDoService {
         return detailedBlog;
     }
 
+    @Override
+    public List<FirstPageBlog> getFirstPageBlogThree ( ) {
+        return blogDoMapper.getFirstPageBlogThree ();
+    }
+
 //    public List<BlogDo> searchAllBlog (BlogDo blog) {
 //        return blogDoMapper.searchByTitleOrTypeOrRecommend ( blog );
 //    }

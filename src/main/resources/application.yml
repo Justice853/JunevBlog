@@ -4,4 +4,4 @@ spring:
   resources:
     add-mappings: true
   profiles:
-    active: pro
+    active: dev

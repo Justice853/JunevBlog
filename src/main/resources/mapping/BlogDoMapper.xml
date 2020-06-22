@@ -408,6 +408,11 @@
         where b.type_id = t.id and  u.id = b.user_id order by b.update_time desc
     </select>
 
+  <select id="getFirstPageBlogThree" resultMap="firstPageBlog">
+        select id,title,first_picture,update_time,description
+        from t_blog order by update_time desc Limit 3;
+    </select>
+
   <resultMap id="recommendBlog" type="com.cxp.blog.vo.RecommendBlog">
     <id property="id" column="id"/>
     <result property="title" column="title"/>

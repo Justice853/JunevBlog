@@ -54,4 +54,6 @@ public interface BlogDoMapper {
 
     int updateBlog(BlogDo blogDo);
 
+    List<FirstPageBlog>getFirstPageBlogThree();
+
 }

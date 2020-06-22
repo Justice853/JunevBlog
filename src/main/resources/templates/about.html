@@ -34,9 +34,9 @@
 
   <!--中间内容-->
   <div  class="m-container m-padded-tb-big">
-    <div class="ui container">
+    <div class="ui container ">
 
-      <div class="ui stackable grid">
+      <div class="ui stackable grid animated zoomIn">
         <div class="eleven wide column">
           <div class="ui segment">
             <img src="../static/images/aboutme.jpg" th:src="@{/images/aboutme.jpg}" alt="" class="ui rounded image">
@@ -69,11 +69,11 @@
 <!--            <a href="#" class="ui circular icon button"><i class="github icon"></i></a>-->
 <!--            <a href="#" class="ui wechat circular icon button"><i class="weixin icon"></i></a>-->
 <!--            <a href="#" class="ui qq circular icon button" data-content="865729312" data-position="bottom center"><i class="qq icon"></i></a>-->
-            <button class="ui tencent circular  icon button" target="_blank" data-content="暂时没有公众号" data-position="left center"><i class="user icon"></i></button>
+            <button class="ui tencent circular  icon button" target="_blank" data-content="暂时没有公众号" data-position="top center"><i class="user icon"></i></button>
             <button class="ui wechat  circular icon button"><i class="weixin icon"></i></button>
             <button class="ui qq circular  icon button"><i class="qq icon"></i></button>
-            <a href="https://github.com/Justice853" target="_blank" class="ui github circular  icon button" data-content="点击跳转GitHub" data-position="left center"><i class="github icon"></i></a>
-            <button class="ui email circular  icon button" data-content="a853113943@gmail.com" data-position="left center"><i class="envelope  icon"></i></button>
+            <a href="https://github.com/Justice853" target="_blank" class="ui github circular  icon button" data-content="点击跳转GitHub" data-position="top center"><i class="github icon"></i></a>
+            <button class="ui email circular  icon button" data-content="a853113943@gmail.com" data-position="top center"><i class="envelope  icon"></i></button>
           </div>
 
           <div class="ui wechat-qr flowing popup transition hidden " style="width: 200px !important;">
@@ -144,13 +144,13 @@
     // 显示微信
     $('.wechat').popup({
       popup : $('.wechat-qr'),
-      position: 'bottom center'
+      position: 'top center'
     });
 
     // 显示QQ
     $('.qq').popup({
       popup : $('.qq-qr'),
-      position: 'bottom center'
+      position: 'top center'
     });
 
     // 显示邮箱

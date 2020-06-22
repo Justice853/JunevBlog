@@ -18,7 +18,10 @@ public class LoginController {
     @Autowired
     UserDoService userDoServiceImpl;
     @GetMapping
-    public String loginPage(){
+    public String loginPage(HttpSession session){
+        if(session.getAttribute ( "user" )!=null){
+            return "admin/index";
+        }
         return "admin/login";
     }
     @PostMapping("/login")

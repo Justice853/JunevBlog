@@ -97,8 +97,13 @@ body {
     margin-left:4em !important;
 }
 
+
 .m-margin-bottom-small {
     margin-bottom: 0.5em !important;
+
+}
+.m-margin-bottom-tiny {
+    margin-bottom: 1.5em !important;
 
 }
 
@@ -169,6 +174,11 @@ body {
     right: 0 !important;
 }
 
+.m-left-bottom {
+    bottom: 0 !important;
+    left: 0 !important;
+}
+
 
 /*-----color-----*/
 .m-black {
@@ -196,6 +206,9 @@ body {
     }
     .m-mobile-wide {
         width: 100% !important;
+    }
+    .m-margin-left-mobile{
+        margin-left:2em !important;
     }
 }
 
@@ -506,7 +519,7 @@ body {
     /*font-family: STXihei;*/
 }
 .m-font-size-text-init-title{
-    font-size: 24px;
+    font-size: 20px;
     color: #fffffc;
     align-content: center;
     font-family:'STXingkai';
